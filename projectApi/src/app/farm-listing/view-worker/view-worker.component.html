@@ -1,0 +1,37 @@
+<div class="container-fluid">
+    <br/>
+  
+    <div class="card ">
+      <h1 class="card-header">
+        Worker Module
+      </h1>
+      <div class="card-body">
+          <br>
+          <table class="table table-striped" style="width: 100%">
+            <thead class= "table-header">
+                <tr>
+                    <th>Worker Id</th>
+                    <th>Worker Name</th>
+                    <th>Work Type</th>
+                    <th>Employment</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor = "let listing of listings">
+                    <td>{{listing.workerId}}</td>
+                    <td>{{listing.name}}</td>
+                    <td>{{listing.workType}}</td>
+                    <td>{{listing.employment}}</td>
+                </tr>
+                <tr *ngIf = '!listings || listings.length == 0'>
+                  <td class='text-center' colspan=12>
+                    No Record(s) Found.
+                  </td>
+                </tr>
+            </tbody>
+        </table>
+      </div>
+  
+    </div>
+  </div>
+  

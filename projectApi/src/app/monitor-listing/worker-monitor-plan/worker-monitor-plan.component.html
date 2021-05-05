@@ -1,0 +1,46 @@
+<div class="container-fluid">
+  <br/>
+
+  <div class="card ">
+    <h1 class="card-header">
+      Monitoring and Planning Module (Worker)
+    </h1>
+    <div class="card-body">
+        <br>
+        <table class="table table-striped" style="width: 100%">
+          <thead class= "table-header">
+              <tr>
+                  <th>Farm Name</th>
+                  <th>Feedback</th>
+                  <th>Risk Level</th>
+                  <th>Mineral Level</th>
+                  <th>Soil Level</th>
+                  <th></th>
+              </tr>
+          </thead>
+          <tbody>
+              <tr *ngFor = "let listing of listings">
+                  <div *ngFor="let farm of farmList">
+                    <td *ngIf="(farm.farmId == listing.farmId)">{{farm.name}}</td>
+                  </div>
+                  <td>{{listing.remarks}}</td>
+                  <td>{{listing.riskLevel}}</td>
+                  <td>{{listing.mineralLevel}}</td>
+                  <td>{{listing.soilLevel}}</td>
+                  <td><button class="btn btn-success" *ngIf="!listing.book"
+                    (click)="updateCropsFeedback(listing)">View Listing</button></td>
+
+              </tr>
+              <tr *ngIf = '!listings || listings.length == 0'>
+                <td class='text-center' colspan=12>
+                  No Record(s) Found.
+                </td>
+              </tr>
+          </tbody>
+      </table>
+
+
+    </div>
+
+  </div>
+</div>

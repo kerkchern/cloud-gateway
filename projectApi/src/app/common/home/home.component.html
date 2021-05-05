@@ -1,0 +1,54 @@
+<div class="container-fluid">
+  <br/>
+
+  <div class="card ">
+    <h1 class="card-header">
+      iFarm Rental and Monitoring System
+    </h1>
+    <div class="card-body">
+        <div class="container">
+          <h1>Welcome {{username}}!</h1>
+        </div>
+        <br>
+        <div class="container">
+          <h2>Types of Farm that Landlord are renting: </h2>
+            <p> Crops: {{cropsCount}} </p>
+            <p> Flowers: {{flowerCount}} </p>
+            <p> Fruits: {{fruitsCount}} </p>
+            <p> Vegetables: {{vegetableCount}} </p>
+            <p> Others: {{othersCount}} </p>
+        </div>
+        <div class="container" *ngIf="cropsCount != 0 || flowerCount != 0 || fruitsCount !=0 || vegetableCount != 0 || othersCount != 0">
+          <div class="chart-wrapper">
+            <canvas baseChart
+            height="20vh" width="80vw"
+            [data]="typeChartData"
+            [labels]="typeChartLabels"
+            [chartType]="typeChartType">
+            </canvas>
+          </div>
+        </div>
+        <div class="container">
+          <h2>Types of Farms that Farmers are booking: </h2>
+            <p> Crops: {{cropsBookCount}} </p>
+            <p> Flowers: {{flowerBookCount}} </p>
+            <p> Fruits: {{fruitsBookCount}} </p>
+            <p> Vegetables: {{vegetableBookCount}} </p>
+            <p> Others: {{othersBookCount}} </p>
+        </div>
+        <div class="container" *ngIf="cropsBookCount != 0 || flowerBookCount != 0 || fruitsBookCount !=0 || vegetableBookCount != 0 || othersBookCount != 0">
+          <div class="chart-wrapper">
+            <canvas baseChart
+            height="20vh" width="80vw"
+            [data]="bookTypeChartData"
+            [labels]="bookTypeChartLabels"
+            [chartType]="bookTypeChartType">
+            </canvas>
+          </div>
+        </div>
+
+    </div>
+
+  </div>
+</div>
+

@@ -4,11 +4,11 @@ version: 0.2
 phases:
   pre_build:
     commands:
-      - mvn clean package
+      - mvn clean install
       - echo Logging in to Amazon ECR...
       - aws --version
       - $(aws ecr get-login --region $AWS_DEFAULT_REGION --no-include-email)
-      - REPOSITORY_URI=525684800046.dkr.ecr.ap-southeast-1.amazonaws.com/cloud-gateway
+      - REPOSITORY_URI=525684800046.dkr.ecr.us-east-2.amazonaws.com/ifarm-registry
       - COMMIT_HASH=$(echo $CODEBUILD_RESOLVED_SOURCE_VERSION | cut -c 1-7)
       - IMAGE_TAG=build-$(echo $CODEBUILD_BUILD_ID | awk -F":" '{print $2}')
   build:
@@ -29,4 +29,4 @@ phases:
 artifacts:
   files:
    - imagedefinitions.json
-   - target/cloud-gateway-0.0.1-SNAPSHOT.jar
+   - target/cloud-gateway.jar
