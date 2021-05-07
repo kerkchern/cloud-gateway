@@ -46,3 +46,10 @@ management:
     web:
       exposure:
         include: hystrix.stream
+
+eureka:
+   client:
+      serviceUrl:
+         defaultZone: http://52.221.253.53:8761/eureka
+      instance:
+      preferIpAddress: true
