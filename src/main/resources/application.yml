@@ -50,6 +50,6 @@ management:
 eureka:
    client:
       serviceUrl:
-         defaultZone: http://http://18.140.130.20:8761/eureka
+         defaultZone: http://18.141.137.69:8761/eureka
       instance:
       preferIpAddress: true
