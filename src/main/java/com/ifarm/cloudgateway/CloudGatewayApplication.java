@@ -14,5 +14,9 @@ public class CloudGatewayApplication {
 		SpringApplication.run(CloudGatewayApplication.class, args);
 	}
 
-	
+	@Bean
+	@LoadBalanced
+	public RestTemplate restTemplate() {
+		return new RestTemplate();
+	}
 }

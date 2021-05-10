@@ -17,21 +17,10 @@ spring:
       uri: lb://MONITOR-PLAN-SERVICE
       predicates:
        - Path=/monitorPlan/**
-      filters:
-       - name: CircuitBreaker
-         args:
-          name: MONITOR-PLAN-SERVICE
-          fallbackuri: 
-           forward: /monitorPlanServiceFallBack
     - id: LISTING-SERVICE
       uri: lb://LISTING-SERVICE
       predicates:
        - Path=/farmListing/**
-      filters:
-       - name: CircuitBreaker
-         args: 
-          name: LISTING-SERVICE
-          fallbackuri: forward:/listingServiceFallBack
             
 hystrix:
  command:
