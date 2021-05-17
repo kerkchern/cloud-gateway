@@ -1,6 +1,16 @@
 server:
   port : 9191
   
+eureka:         #tells about the Eureka server details and its refresh time
+  instance:
+    leaseRenewalIntervalInSeconds: 1
+    leaseExpirationDurationInSeconds: 2
+  client:
+    serviceUrl:
+      defaultZone: http://122.248.228.175:8761/eureka/
+    lease:
+      duration: 5
+
 spring:
  application:
   name: API-GATEWAY 
@@ -35,10 +45,3 @@ management:
     web:
       exposure:
         include: hystrix.stream
-
-eureka:
-   client:
-      serviceUrl:
-         defaultZone: http://13.229.219.169:8761/eureka
-      instance:
-      preferIpAddress: true
